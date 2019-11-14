@@ -105,3 +105,8 @@ Another cause could be your page is **not routable**. The routable option for a 
 
 If your site is in a subfolder, make sure your nginx.conf location points to that subfolder. Grav's [sample nginx.conf](https://github.com/getgrav/grav/blob/master/webserver-configs/nginx.conf) has a comment in the code that explains how.
 
+Also check if you have try_files defanition, in the server block of your conf file. It shoud exactly be like this. Otherwise you will get 404 error.
+[prism classes="language-bash command-line"]
+try_files $uri $uri/ /index.php?$query_string;
+[/prism]
+
